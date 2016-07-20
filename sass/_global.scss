@@ -1,0 +1,68 @@
+@import 'compass';
+@import 'compass/css3';
+@import '_mixins';
+@import '_skin';
+
+
+@font-face {
+  font-family: 'ClimaconsRegular';
+  src: url('../fonts/climacons-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/climacons-webfont.woff') format('woff'),
+       url('../fonts/climacons-webfont.ttf')  format('truetype'),
+       url('../fonts/climacons-webfont.svg#ClimaconsRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MontserratRegular';
+  src: url('../fonts/Montserrat-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Montserrat-Regular-webfont.woff') format('woff'),
+       url('../fonts/Montserrat-Regular-webfont.ttf')  format('truetype'),
+       url('../fonts/Montserrat-Regular-webfont.svg#MontserratRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MontserratBold';
+  src: url('../fonts/Montserrat-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Montserrat-Bold-webfont.woff') format('woff'),
+       url('../fonts/Montserrat-Bold-webfont.ttf')  format('truetype'),
+       url('../fonts/Montserrat-Bold-webfont.svg#MontserratBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+%animate-fade {
+  opacity: 0;
+  -webkit-transition: all .25s ease-in;
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%tempBig {
+  font-size: 50px;
+  line-height: 50px;
+  margin: 0;
+  padding: 0;
+  color: $color-accent;
+  letter-spacing: -3px;
+  font-family: $font-bold;
+}

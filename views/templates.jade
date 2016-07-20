@@ -1,0 +1,87 @@
+extends layout
+
+block templates
+  script(type="text/html", id="template-status")
+    <% if(message) { print(message); } %>
+
+  script(type="text/html", id="template-currently")
+    h2
+      span Forecast
+    .clockface
+      .background
+      .guides
+      .temps
+      .numbers
+      .icons
+      .hands
+    .forecast-summary
+      .cell
+        .summary
+
+  script(type="text/html", id="template-currently-stats")
+    .icon-temp
+      .icon-wrap
+      .tempNow <%=temp%>&deg;
+    ul.stats
+      li.high <span>High</span><span class="value"><%=high%>&deg;</span>
+      li.low <span>Low</span><span class="value"><%=low%>&deg;</span>
+      li.feels-like <span>Feels Like</span><span class="value"><%=feelsLike%>&deg;</span>
+      li.wind-speed <span>Wind Speed (mph)</span><span class="value"><%=windSpeed%></span>
+
+  script(type="text/html", id="template-precipitation")
+    h2
+      span Precipitation
+    .clockface
+      .segments
+      .background
+      .guides
+      .dashed
+      .numbers
+      .hands
+    .forecast-summary
+      .cell
+        <%if(hourly && minutely) {%>
+        a.unit(class="toggle")
+          span.hour(class="active") Hour
+          span.minute Minute
+        <%}%>
+        .chance
+        p.summary
+
+  script(type="text/html", id="template-precipitation-summary")
+    | Chance of <%=type%> in the next <%=timeUnit%>
+
+  script(type="text/html", id="template-outlook")
+    h2
+      span Outlook
+    .week-wrap
+      .week
+
+  script(type="text/html", id="template-outlook-day")
+    .row-day
+      .day <%=day%>
+      .icon
+      .high <%=high%>&deg;
+      .low <%=low%>&deg;
+      .umbrella
+      .chance <%=chance%>%
+
+
+  script(type="text/html", id="template-nav")
+    .inline-nav
+      a.scale(class="toggle")
+        span.c C&deg;
+        span.f(class="active") F&deg;
+
+    ul
+      li
+        a(data-screen="currently", href="#currently")
+      li
+        a(data-screen="precipitation", href="#precipitation")
+      li
+        a(data-screen="outlook", href="#outlook")
+
+  script(type="text/html", id="template-main")
+    li.currently
+    li.precipitation
+    li.outlook

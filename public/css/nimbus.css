@@ -1,0 +1,500 @@
+@font-face {
+  font-family: 'ClimaconsRegular';
+  src: url("../fonts/climacons-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/climacons-webfont.woff") format("woff"), url("../fonts/climacons-webfont.ttf") format("truetype"), url("../fonts/climacons-webfont.svg#ClimaconsRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MontserratRegular';
+  src: url("../fonts/Montserrat-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-Regular-webfont.woff") format("woff"), url("../fonts/Montserrat-Regular-webfont.ttf") format("truetype"), url("../fonts/Montserrat-Regular-webfont.svg#MontserratRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MontserratBold';
+  src: url("../fonts/Montserrat-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-Bold-webfont.woff") format("woff"), url("../fonts/Montserrat-Bold-webfont.ttf") format("truetype"), url("../fonts/Montserrat-Bold-webfont.svg#MontserratBold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 37, ../../sass/_global.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 42, ../../sass/_global.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 53, ../../sass/_global.scss */
+.main-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 60, ../../sass/_global.scss */
+.section .forecast-summary .icon-temp .tempNow, .section-precipitation .forecast-summary .chance {
+  font-size: 50px;
+  line-height: 50px;
+  margin: 0;
+  padding: 0;
+  color: #ff8c1c;
+  letter-spacing: -3px;
+  font-family: "MontserratBold";
+}
+
+/* line 3, ../../sass/nimbus.scss */
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 7, ../../sass/nimbus.scss */
+body {
+  font-family: "MontserratRegular";
+  background-color: #344957;
+  overflow: hidden;
+}
+
+@-webkit-keyframes pulse {
+  /* line 15, ../../sass/nimbus.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(0.75);
+  }
+
+  /* line 19, ../../sass/nimbus.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.3);
+  }
+}
+
+/* line 25, ../../sass/nimbus.scss */
+#status {
+  font-size: 30px;
+  color: white;
+}
+/* line 29, ../../sass/nimbus.scss */
+#status p.pulse:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  content: '';
+  display: block;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+  background-color: white;
+  -webkit-animation: pulse 0.6s infinite;
+  -webkit-transition: scale 1s ease-in;
+}
+
+/* line 46, ../../sass/nimbus.scss */
+.toggle {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  border: rgba(255, 255, 255, 0.5) 1px solid;
+  overflow: hidden;
+  display: block;
+}
+/* line 51, ../../sass/nimbus.scss */
+.toggle span {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: left;
+  font-size: 10px;
+  font-weight: bold;
+}
+/* line 57, ../../sass/nimbus.scss */
+.toggle span:first-child {
+  text-align: right;
+}
+/* line 60, ../../sass/nimbus.scss */
+.toggle span.active {
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #ff8c1c;
+}
+
+/* line 67, ../../sass/nimbus.scss */
+.main-wrapper {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 73, ../../sass/nimbus.scss */
+.main-wrapper > li {
+  float: left;
+}
+
+/* line 78, ../../sass/nimbus.scss */
+#main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+/* line 86, ../../sass/nimbus.scss */
+#main:after {
+  background-image: -webkit-gradient(linear, to left, to right, color-stop(25%, #344957), color-stop(32%, rgba(52, 73, 87, 0)), color-stop(68%, rgba(52, 73, 87, 0)), color-stop(75%, #344957));
+  background-image: -webkit-linear-gradient(to left, #344957 25%, rgba(52, 73, 87, 0) 32%, rgba(52, 73, 87, 0) 68%, #344957 75%);
+  background-image: -moz-linear-gradient(to left, #344957 25%, rgba(52, 73, 87, 0) 32%, rgba(52, 73, 87, 0) 68%, #344957 75%);
+  background-image: -o-linear-gradient(to left, #344957 25%, rgba(52, 73, 87, 0) 32%, rgba(52, 73, 87, 0) 68%, #344957 75%);
+  background-image: linear-gradient(to left, #344957 25%, rgba(52, 73, 87, 0) 32%, rgba(52, 73, 87, 0) 68%, #344957 75%);
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 10%;
+}
+
+/* line 100, ../../sass/nimbus.scss */
+#navigation ul {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+/* line 115, ../../sass/nimbus.scss */
+#navigation li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  background-color: white;
+  opacity: 0.2;
+  margin: 0 3px;
+  padding: 0;
+}
+/* line 123, ../../sass/nimbus.scss */
+#navigation li a {
+  display: block;
+  height: 7px;
+  width: 7px;
+}
+/* line 129, ../../sass/nimbus.scss */
+#navigation li.selected {
+  opacity: 1;
+}
+/* line 134, ../../sass/nimbus.scss */
+#navigation .inline-nav {
+  position: absolute;
+  top: 23px;
+  right: 20px;
+  z-index: 3;
+}
+/* line 141, ../../sass/nimbus.scss */
+#navigation .inline-nav .scale span {
+  padding: 4px 4px 4px 7px;
+  width: 26px;
+}
+/* line 144, ../../sass/nimbus.scss */
+#navigation .inline-nav .scale span:first-child {
+  padding-right: 3px;
+}
+
+/* line 153, ../../sass/nimbus.scss */
+.section h2 {
+  display: table;
+  padding: 29px 0 0;
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 11px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: 100%;
+}
+/* line 163, ../../sass/nimbus.scss */
+.section h2 span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 172, ../../sass/nimbus.scss */
+.section .clockface {
+  height: 58%;
+  text-align: center;
+  position: relative;
+}
+/* line 176, ../../sass/nimbus.scss */
+.section .clockface > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+/* line 183, ../../sass/nimbus.scss */
+.section .clockface .temps, .section .clockface .icons, .section .clockface .numbers {
+  left: 50%;
+  top: 50%;
+}
+/* line 187, ../../sass/nimbus.scss */
+.section .clockface .temp, .section .clockface .number {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+/* line 194, ../../sass/nimbus.scss */
+.section .clockface .temp {
+  font-size: 18px;
+  color: #fff;
+  opacity: .7;
+}
+/* line 200, ../../sass/nimbus.scss */
+.section .clockface .number {
+  font-size: 12px;
+  color: #ff8c1c;
+}
+/* line 205, ../../sass/nimbus.scss */
+.section .clockface .icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  margin: -25px 0 0 -25px;
+  padding: 0;
+  fill: #ffffff;
+}
+/* line 214, ../../sass/nimbus.scss */
+.section .forecast-summary {
+  height: 20%;
+  text-align: center;
+  position: relative;
+  display: table;
+  width: 100%;
+}
+/* line 221, ../../sass/nimbus.scss */
+.section .forecast-summary .cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 226, ../../sass/nimbus.scss */
+.section .forecast-summary .summary {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 230, ../../sass/nimbus.scss */
+.section .forecast-summary .icon-temp, .section .forecast-summary .stats {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+/* line 234, ../../sass/nimbus.scss */
+.section .forecast-summary .icon-temp {
+  width: 90px;
+  margin-right: 3%;
+}
+/* line 238, ../../sass/nimbus.scss */
+.section .forecast-summary .icon-temp .icon-wrap {
+  position: relative;
+  height: 70px;
+}
+/* line 243, ../../sass/nimbus.scss */
+.section .forecast-summary .icon-temp .icon {
+  fill: #fff;
+  position: absolute;
+  top: -10px;
+  height: 90px;
+  width: 90px;
+  left: 0;
+}
+/* line 256, ../../sass/nimbus.scss */
+.section .forecast-summary .stats {
+  width: 55%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  line-height: 17px;
+}
+/* line 267, ../../sass/nimbus.scss */
+.section .forecast-summary .stats li {
+  overflow: hidden;
+  *zoom: 1;
+  padding-top: 5px;
+  margin-top: 5px;
+  border-top: rgba(255, 255, 255, 0.5) 1px solid;
+}
+/* line 272, ../../sass/nimbus.scss */
+.section .forecast-summary .stats li:first-child {
+  border: none;
+  margin-top: 0;
+}
+/* line 277, ../../sass/nimbus.scss */
+.section .forecast-summary .stats li span {
+  letter-spacing: 1px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+/* line 280, ../../sass/nimbus.scss */
+.section .forecast-summary .stats li span.value {
+  letter-spacing: 0px;
+  font-size: 18px;
+  color: #ff8c1c;
+  float: right;
+  font-weight: bold;
+}
+
+/* line 294, ../../sass/nimbus.scss */
+.section-precipitation .forecast-summary {
+  opacity: 0;
+}
+/* line 299, ../../sass/nimbus.scss */
+.section-precipitation .forecast-summary .summary {
+  color: #fff;
+  margin: 0;
+}
+/* line 303, ../../sass/nimbus.scss */
+.section-precipitation .forecast-summary .unit {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-bottom: 20px;
+}
+/* line 306, ../../sass/nimbus.scss */
+.section-precipitation .forecast-summary .unit span {
+  text-transform: uppercase;
+  padding: 4px 0 4px 8px;
+  width: 65px;
+}
+/* line 310, ../../sass/nimbus.scss */
+.section-precipitation .forecast-summary .unit span:first-child {
+  padding: 4px 13px 4px 0;
+}
+/* line 317, ../../sass/nimbus.scss */
+.section-precipitation .dashed .label {
+  top: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: -12px;
+}
+/* line 324, ../../sass/nimbus.scss */
+.section-precipitation .dashed .label span {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  margin: 0;
+  padding: 2px 3px 1px 4px;
+  font-size: 10px;
+  color: #ff8c1c;
+  background: #344957;
+}
+
+/* line 336, ../../sass/nimbus.scss */
+.section-outlook .week-wrap {
+  display: table;
+  width: 100%;
+  height: 84%;
+}
+/* line 341, ../../sass/nimbus.scss */
+.section-outlook .week {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 345, ../../sass/nimbus.scss */
+.section-outlook .row-day {
+  padding: 1% 10px 0 20px;
+  margin: 0 0 1%;
+  border-top: rgba(255, 255, 255, 0.2) 1px solid;
+  color: #fff;
+  font-size: 18px;
+}
+/* line 346, ../../sass/nimbus.scss */
+.section-outlook .row-day:first-child {
+  border: none;
+}
+/* line 355, ../../sass/nimbus.scss */
+.section-outlook .row-day > div {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0;
+  padding: 0;
+}
+/* line 360, ../../sass/nimbus.scss */
+.section-outlook .row-day .icon, .section-outlook .row-day .umbrella {
+  width: 45px;
+  height: 45px;
+  fill: #ffffff;
+}
+/* line 365, ../../sass/nimbus.scss */
+.section-outlook .row-day .umbrella {
+  margin-right: -5px;
+}
+/* line 368, ../../sass/nimbus.scss */
+.section-outlook .row-day .day {
+  width: 29%;
+  font-size: 14px;
+}
+/* line 372, ../../sass/nimbus.scss */
+.section-outlook .row-day .high {
+  width: 10%;
+  color: #ff8c1c;
+  margin-right: 5px;
+}
+/* line 377, ../../sass/nimbus.scss */
+.section-outlook .row-day .low {
+  width: 13%;
+  color: rgba(0, 0, 0, 0.35);
+  border-right: rgba(255, 255, 255, 0.2) 1px solid;
+  padding-right: 10px;
+}

@@ -1,0 +1,12 @@
+.sass-cache
+.env
+.DS_Store
+
+#build
+#release/
+
+#npm
+node_modules/
+
+#bower
+public/packages/bower

@@ -1,0 +1,384 @@
+@import '_global';
+
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: $font-default;
+  background-color: $color-blueGrey;
+  overflow: hidden;
+}
+
+//Loader
+@-webkit-keyframes pulse {
+  0%    {
+    opacity:1;
+    -webkit-transform: scale(0.75);
+  }
+  100%   {
+    opacity:0;
+    -webkit-transform: scale(1.3);
+  }
+}
+
+#status {
+  font-size: 30px;
+  color: $color-white;
+
+  p.pulse:before {
+    position: absolute;
+    top:50%;
+    left:50%;
+    right:0;
+    width:30px;
+    height:30px;
+    margin:-15px 0 0 -15px;
+    content: '';
+    display: block;
+    @include border-radius(30px);
+    background-color:$color-white;
+    -webkit-animation: pulse 0.6s infinite;
+    -webkit-transition: scale 1s ease-in;
+  }
+}
+
+.toggle {
+  @include border-radius(20px);
+  border: rgba(255,255,255,0.5) 1px solid;
+  overflow: hidden;
+  display: block;
+  span {
+    @include inline-block;
+    color: rgba(255,255,255,0.5);
+    text-align: left;
+    font-size: 10px;
+    font-weight: bold;
+    &:first-child {
+      text-align: right;
+    }
+    &.active {
+      background-color:rgba(0,0,0,0.35);
+      color: $color-accent;
+    }
+  }
+}
+
+.main-wrapper {
+  @extend %clearfix;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    float: left;
+  }
+}
+
+#main {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow: hidden;
+  z-index: 2;
+  &:after {
+    //15, 25, 75, 85
+    @include background-image(linear-gradient(to left, $color-blueGrey 25%, rgba($color-blueGrey, 0) 32%, rgba($color-blueGrey, 0) 68%, $color-blueGrey 75%));
+    content: '';
+    display: block;
+    width:100%;
+    position: absolute;
+    top:0;
+    height: 10%;
+  }
+}
+
+//nav
+#navigation {
+  ul {
+    position: absolute;
+    bottom:20px;
+    left:0;
+    right:0;
+    margin:0;
+    padding:0;
+    width:100%;
+    text-align: center;
+    z-index: 1;
+    list-style: none;
+    margin:0 auto;
+    padding:0;
+  }
+
+  li {
+    @include inline-block();
+    @include border-radius(7px);
+    background-color: $color-white;
+    opacity:0.2;
+    margin:0 3px;
+    padding:0;
+
+    a {
+      display: block;
+      height: 7px;
+      width: 7px;
+    }
+
+    &.selected {
+      opacity:1;
+    }
+  }
+
+  .inline-nav {
+    position: absolute;
+    top:23px;
+    right:20px;
+    z-index: 3;
+
+    .scale {
+      span {
+        padding: 4px 4px 4px 7px;
+        width:26px;
+        &:first-child {
+          padding-right: 3px;
+        }
+      }
+    }
+  }
+}
+
+.section {
+  h2 {
+    display: table;
+    padding: 29px 0 0;
+    margin: 0 0 10px;
+    text-align: center;
+    font-size: 11px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
+
+// Currently & Preciptation messaging
+.section {
+  .clockface {
+    height:58%;
+    text-align:center;
+    position: relative;
+    > div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+    .temps, .icons, .numbers {
+      left: 50%;
+      top:50%;
+    }
+    .temp, .number {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+    }
+
+    .temp {
+      font-size: 18px;
+      color: #fff;
+      opacity: .7;
+    }
+
+    .number {
+      font-size: 12px;
+      color: $color-accent;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      margin: -25px 0 0 -25px;
+      padding: 0;
+      fill: #ffffff;
+    }
+  }
+  .forecast-summary {
+    height: 20%;
+    text-align: center;
+    position: relative;
+    display: table;
+    width: 100%;
+
+    .cell {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .summary {
+      @include clearfix;
+    }
+
+    .icon-temp, .stats {
+      @include inline-block;
+    }
+
+    .icon-temp {
+      width:90px;
+      margin-right:3%;
+
+      .icon-wrap {
+        position: relative;
+        height: 70px;
+      }
+
+      .icon {
+        fill: #fff;
+        position: absolute;
+        top: -10px;
+        height: 90px;
+        width: 90px;
+        left: 0;
+      }
+    }
+
+    .icon-temp .tempNow {
+      @extend %tempBig;
+    }
+    .stats {
+      width:55%;
+      margin:0;
+      padding:0;
+      list-style: none;
+      text-align: left;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-size: 10px;
+      line-height: 17px;
+
+      li {
+        @include clearfix;
+        padding-top: 5px;
+        margin-top: 5px;
+        border-top: rgba(255,255,255,0.5) 1px solid;
+        &:first-child {
+          border: none;
+          margin-top: 0;
+        }
+
+        span {
+          letter-spacing: 1px;
+          @include inline-block;
+          &.value {
+            letter-spacing: 0px;
+            font-size: 18px;
+            color: $color-accent;
+            float: right;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section-precipitation {
+  .forecast-summary {
+    opacity: 0;
+    .chance {
+      @extend %tempBig;
+    }
+    .summary {
+      color: #fff;
+      margin: 0;
+    }
+    .unit {
+      @include inline-block;
+      margin-bottom: 20px;
+      span {
+        text-transform: uppercase;
+        padding: 4px 0 4px 8px;
+        width:65px;
+        &:first-child {
+          padding: 4px 13px 4px 0;
+        }
+      }
+    }
+  }
+
+  .dashed .label {
+    top: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: -12px;
+
+    span {
+      @include border-radius(2px);
+      margin: 0;
+      padding: 2px 3px 1px 4px;
+      font-size: 10px;
+      color: $color-accent;
+      background: $color-blueGrey;
+    }
+  }
+}
+
+.section-outlook {
+  .week-wrap {
+    display: table;
+    width:100%;
+    height: 84%
+  }
+  .week {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .row-day {
+    &:first-child {
+      border: none;
+    }
+    padding:1% 10px 0 20px;
+    margin:0 0 1%;
+    border-top: rgba(255,255,255,0.2) 1px solid;
+    color: #fff;
+    font-size: 18px;
+
+    > div {
+      @include inline-block(middle);
+      margin:0;
+      padding:0;
+    }
+    .icon, .umbrella {
+      width: 45px;
+      height: 45px;
+      fill: #ffffff;
+    }
+    .umbrella {
+      margin-right:-5px;
+    }
+    .day {
+      width:29%;
+      font-size: 14px;
+    }
+    .high {
+      width:10%;
+      color: $color-accent;
+      margin-right:5px;
+    }
+    .low {
+      width:13%;
+      color: rgba(0,0,0,0.35);
+      border-right: rgba(255,255,255,0.2) 1px solid;
+      padding-right: 10px;
+    }
+  }
+}
